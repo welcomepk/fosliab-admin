@@ -11,7 +11,7 @@ interface AuthContextType {
     isAuthenticated: boolean | null;
     user: User | null;
     authToken: string | null;
-    login: (token: string) => void;
+    login: (token: string, user: User) => void;
     logout: () => void;
 }
 
@@ -24,15 +24,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const navigate = useNavigate();
 
-    const login = (token: string) => {
+    const login = (token: string, user: User) => {
         setAuthToken(token);
         setIsAuthenticated(true);
+        setUser(user);
         navigate('/');
     };
 
     const logout = () => {
         setUser(null);
         setIsAuthenticated(false);
+        setAuthToken(null);
         navigate('/login', { replace: true });
     };
 

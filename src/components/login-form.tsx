@@ -9,12 +9,34 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useAuth } from "@/context/authProvider"
+import { FormEvent, useState } from "react"
 
+interface LoginFormState {
+    username: string;
+    password: string;
+}
 export default function LoginForm({
     className,
     ...props
 }: React.ComponentPropsWithoutRef<"div">) {
 
+    const { login } = useAuth();
+    const [user, setUser] = useState<LoginFormState>({} as LoginFormState);
+
+    const handleLogin = (e: FormEvent) => {
+        e.preventDefault();
+        if (!user.username || !user.password) {
+            alert("Please enter your username and password");
+            return;
+        }
+        if (user.username === "admin" && user.password === "password") {
+            login("token123", { id: "1", username: user.username });
+        }
+        else {
+            alert("Invalid username or password");
+        }
+    }
     return (
         <div className={cn("flex flex-col gap-6", className)} {...props}>
             <Card>
@@ -25,7 +47,7 @@ export default function LoginForm({
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <div className="flex flex-col gap-6">
                             <div className="grid gap-3">
                                 <Label htmlFor="username">Username</Label>
@@ -34,13 +56,20 @@ export default function LoginForm({
                                     type="text"
                                     placeholder="Enter your username"
                                     required
+                                    onChange={(e) => setUser({ ...user, username: e.target.value })}
                                 />
                             </div>
                             <div className="grid gap-3">
                                 <Label htmlFor="password">Password</Label>
-                                <Input id="password" type="password" placeholder="Enter your password" required />
+                                <Input
+                                    id="password"
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    required
+                                    onChange={(e) => setUser({ ...user, password: e.target.value })}
+                                />
                             </div>
-                            <Button variant="brand" type="submit" className="w-full">
+                            <Button onClick={handleLogin} variant="brand" type="submit" className="w-full">
                                 Login
                             </Button>
                         </div>
