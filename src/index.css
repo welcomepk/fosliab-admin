@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer base {
@@ -73,6 +73,93 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%}
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --brand: 220 100% 50%; /* Dark blue brand */
+    --brand-foreground: 0 0% 100%; /* White brand foreground */
+    --c-brand: 330 100% 54%;
+    --c-brand-foreground: 0 0% 100%;
+    --background: 210 100% 98%; /* Light blue background */
+    --foreground: 220 100% 20%; /* Dark blue foreground */
+    --card: 210 100% 98%; /* Light blue card */
+    --card-foreground: 220 100% 20%; /* Dark blue card foreground */
+    --popover: 210 100% 98%; /* Light blue popover */
+    --popover-foreground: 220 100% 20%; /* Dark blue popover foreground */
+    --primary: 220 100% 50%; /* Dark blue primary */
+    --primary-foreground: 210 100% 98%; /* Light blue primary foreground */
+    --secondary: 220 100% 40%; /* Medium dark blue secondary */
+    --secondary-foreground: 210 100% 98%; /* Light blue secondary foreground */
+    --muted: 210 100% 90%; /* Light blue muted */
+    --muted-foreground: 220 100% 20%; /* Dark blue muted foreground */
+    --accent: 205.36deg 87.74% 21.05% / 75%; /* Dark blue accent */
+    --accent-foreground: 210 100% 98%; /* Light blue accent foreground */
+    --destructive: 0 62.8% 30.6%; /* Dark red destructive */
+    --destructive-foreground: 210 100% 98%; /* Light blue destructive foreground */
+    --border: 210 100% 90%; /* Light blue border */
+    --input: 210 100% 90%; /* Light blue input */
+    --ring: 220 100% 50%; /* Dark blue ring */
+    --chart-1: 220 100% 50%; /* Dark blue chart 1 */
+    --chart-2: 220 100% 40%; /* Medium dark blue chart 2 */
+    --chart-3: 220 100% 30%; /* Darker blue chart 3 */
+    --chart-4: 220 100% 20%; /* Darkest blue chart 4 */
+    --chart-5: 220 100% 10%; /* Very dark blue chart 5 */
+    --radius: 0.5rem;
+    --sidebar-background: 205.36deg 87.74% 21.05% / 83%; /* Dark blue sidebar background */
+    --sidebar-foreground: 210 100% 98%; /* Light blue sidebar foreground */
+    --sidebar-primary: 220 100% 50%; /* Dark blue sidebar primary */
+    --sidebar-primary-foreground: 210 100% 98%; /* Light blue sidebar primary foreground */
+    --sidebar-accent: 205deg 88% 16% / 23%; /* Dark blue sidebar accent */
+    --sidebar-accent-foreground: 210 100% 98%; /* Light blue sidebar accent foreground */
+    --sidebar-border: 210deg 33.46% 46.13%; /* Dark blue sidebar border */
+    --sidebar-ring: 220 100% 50%; /* Dark blue sidebar ring */
+  }
+  .dark {
+    --background: 220 100% 10%; /* Very dark blue background */
+    --foreground: 210 100% 98%; /* Light blue foreground */
+    --card: 220 100% 10%; /* Very dark blue card */
+    --card-foreground: 210 100% 98%; /* Light blue card foreground */
+    --popover: 220 100% 10%; /* Very dark blue popover */
+    --popover-foreground: 210 100% 98%; /* Light blue popover foreground */
+    --primary: 210 100% 98%; /* Light blue primary */
+    --primary-foreground: 220 100% 50%; /* Dark blue primary foreground */
+    --secondary: 220 100% 20%; /* Dark blue secondary */
+    --secondary-foreground: 210 100% 98%; /* Light blue secondary foreground */
+    --muted: 220 100% 20%; /* Dark blue muted */
+    --muted-foreground: 210 100% 98%; /* Light blue muted foreground */
+    --accent: 220 100% 50%; /* Dark blue accent */
+    --accent-foreground: 210 100% 98%; /* Light blue accent foreground */
+    --destructive: 0 62.8% 30.6%; /* Dark red destructive */
+    --destructive-foreground: 210 100% 98%; /* Light blue destructive foreground */
+    --border: 220 100% 20%; /* Dark blue border */
+    --input: 220 100% 20%; /* Dark blue input */
+    --ring: 220 100% 50%; /* Dark blue ring */
+    --chart-1: 220 100% 50%; /* Dark blue chart 1 */
+    --chart-2: 220 100% 40%; /* Medium dark blue chart 2 */
+    --chart-3: 220 100% 30%; /* Darker blue chart 3 */
+    --chart-4: 220 100% 20%; /* Darkest blue chart 4 */
+    --chart-5: 220 100% 10%; /* Very dark blue chart 5 */
+    --sidebar-background: 220 100% 10%; /* Very dark blue sidebar background */
+    --sidebar-foreground: 210 100% 98%; /* Light blue sidebar foreground */
+    --sidebar-primary: 220 100% 50%; /* Dark blue sidebar primary */
+    --sidebar-primary-foreground: 210 100% 98%; /* Light blue sidebar primary foreground */
+    --sidebar-accent: 220 100% 50%; /* Dark blue sidebar accent */
+    --sidebar-accent-foreground: 210 100% 98%; /* Light blue sidebar accent foreground */
+    --sidebar-border: 220 100% 20%; /* Dark blue sidebar border */
+    --sidebar-ring: 220 100% 50%; /* Dark blue sidebar ring */
+  }
 }
 @layer base {
   * {

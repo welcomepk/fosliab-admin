@@ -16,7 +16,9 @@ import {
     SidebarMenuSub,
     SidebarMenuSubButton,
     SidebarMenuSubItem,
+    useSidebar,
 } from "@/components/ui/sidebar"
+import { Link } from "react-router"
 
 export function NavMain({
     items,
@@ -32,6 +34,12 @@ export function NavMain({
         }[]
     }[]
 }) {
+    const { open, toggleSidebar } = useSidebar()
+    const handleSidebarToggle = () => {
+        if (!open) {
+            toggleSidebar()
+        }
+    }
     return (
         <SidebarGroup>
             <SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -42,10 +50,11 @@ export function NavMain({
                         asChild
                         defaultOpen={item.isActive}
                         className="group/collapsible"
+                        onClick={handleSidebarToggle}
                     >
                         <SidebarMenuItem>
-                            <CollapsibleTrigger asChild>
-                                <SidebarMenuButton tooltip={item.title}>
+                            <CollapsibleTrigger asChild className="">
+                                <SidebarMenuButton className="text-base" tooltip={item.title}>
                                     {item.icon && <item.icon />}
                                     <span>{item.title}</span>
                                     <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
@@ -56,9 +65,9 @@ export function NavMain({
                                     {item.items?.map((subItem) => (
                                         <SidebarMenuSubItem key={subItem.title}>
                                             <SidebarMenuSubButton asChild>
-                                                <a href={subItem.url}>
-                                                    <span>{subItem.title}</span>
-                                                </a>
+                                                <Link to={subItem.url}>
+                                                    <span className="text-base">{subItem.title}</span>
+                                                </Link>
                                             </SidebarMenuSubButton>
                                         </SidebarMenuSubItem>
                                     ))}

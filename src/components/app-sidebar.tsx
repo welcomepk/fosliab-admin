@@ -13,9 +13,8 @@ import {
     SidebarFooter,
     SidebarHeader,
     SidebarRail,
+    SidebarTrigger,
 } from "@/components/ui/sidebar"
-import { NavUser } from "./nav-user"
-import { useAuth } from "@/context/authProvider"
 
 // This is sample data.
 const data = {
@@ -33,16 +32,16 @@ const data = {
             isActive: true,
             items: [
                 {
-                    title: "History",
-                    url: "#",
+                    title: "Page1",
+                    url: "/page1",
                 },
                 {
-                    title: "Starred",
-                    url: "#",
+                    title: "Page2",
+                    url: "/page2",
                 },
                 {
-                    title: "Settings",
-                    url: "#",
+                    title: "Page3",
+                    url: "/page3",
                 },
             ],
         },
@@ -70,18 +69,18 @@ const data = {
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-    const { user } = useAuth();
     return (
         <Sidebar collapsible="icon" {...props}>
-            <SidebarHeader>
+            <SidebarHeader className="h-12 border-b-sidebar-border">
                 {/* <TeamSwitcher teams={data.teams} /> */}
+                <SidebarTrigger />
             </SidebarHeader>
-            <SidebarContent>
+            <SidebarContent >
                 <NavMain items={data.navMain} />
             </SidebarContent>
             <SidebarFooter>
                 {/* <NavUser user={data.user} /> */}
-                <NavUser user={user} />
+                {/* <NavUser user={user} /> */}
             </SidebarFooter>
             <SidebarRail />
         </Sidebar>
